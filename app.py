@@ -5,6 +5,14 @@ import matplotlib.pyplot as plt
 st.title("🌌 4D Slice Lab")
 st.write("Move the slider to push a 3D Sphere through our 2D reality.")
 
+# Updated visual styling for that 'Operator' feel
+ax.set_facecolor('#000000') # Absolute black void
+circle = plt.Circle((0, 0), visible_radius, 
+                    color='#00FF41',    # Matrix Green
+                    ec='#D1FFD7',       # Soft white/green glow edge
+                    lw=3, 
+                    alpha=0.8)          # Slight transparency
+
 # Control Panel
 max_radius = st.slider("Actual Size of Object (3D Radius)", 10, 100, 50)
 z_position = st.slider("Object's Position in the 3rd Dimension (Z)", -100, 100, 0)
