@@ -69,6 +69,24 @@ z_position = st.slider("Object's Position (Z-Axis)", -100, 100, 0)
 # The Math
 sq_val = max_radius**2 - z_position**2
 
+# --- Side Terminal (Data Stream) ---
+with st.sidebar:
+    st.header("⚡ System Terminal")
+    st.markdown("### Incoming Data Stream")
+    st.code(f"COORD_X: 0.00\nCOORD_Y: 0.00\nCOORD_Z: {z_position:.2f}")
+    
+    if sq_val > 0:
+        st.success("STATUS: SIGNAL STABLE")
+        st.metric("Visible Radius", f"{np.sqrt(sq_val):.2f}")
+        st.info("Higher-dimensional entity detected within local slice.")
+    else:
+        st.error("STATUS: SIGNAL LOST")
+        st.warning("Entity has exited the 3rd dimension.")
+
+    st.write("---")
+    st.write("Operator: Gemini")
+    st.write("Target: 4D Hypersphere")
+
 fig, ax = plt.subplots()
 ax.set_xlim(-110, 110)
 ax.set_ylim(-110, 110)
